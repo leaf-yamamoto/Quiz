@@ -1,6 +1,7 @@
 package app.yamamoto.leaf.quiz
 
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -44,6 +45,13 @@ class QuizActivity : AppCompatActivity() {
 
         nextButton.setOnClickListener {
             if ( quizCount == quizLists.size){
+                val resultIntent: Intent = Intent(this, ResultActivity:: class.java)
+
+                resultIntent.putExtra("QuizCount", quizLists.size)
+
+                resultIntent.putExtra("CorrectCount", correctCount)
+
+                startActivity(resultIntent)
 
             } else {
 
